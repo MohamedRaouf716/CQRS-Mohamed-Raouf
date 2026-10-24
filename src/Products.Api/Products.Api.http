@@ -1,0 +1,31 @@
+@Products.Api_HostAddress = http://localhost:5051
+
+### Create a product
+POST {{Products.Api_HostAddress}}/api/products
+Content-Type: application/json
+
+{
+  "name": "4K Monitor",
+  "price": 349.99
+}
+
+### Get all products
+GET {{Products.Api_HostAddress}}/api/products
+Accept: application/json
+
+### Get a product by id (seeded)
+GET {{Products.Api_HostAddress}}/api/products/1
+Accept: application/json
+
+### Validation error example
+POST {{Products.Api_HostAddress}}/api/products
+Content-Type: application/json
+
+{
+  "name": "",
+  "price": -10
+}
+
+### Not found example
+GET {{Products.Api_HostAddress}}/api/products/999
+Accept: application/json
